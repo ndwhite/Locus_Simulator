@@ -1,6 +1,10 @@
 # Locus_Simulator
 Please cite use of this software.
 
+
+[![DOI](https://zenodo.org/badge/97755216.svg)](https://zenodo.org/badge/latestdoi/97755216)
+
+
 This script creates randomized loci from a de-interleaved fasta-format genome file. It takes into account the probability of a random locus being on a given contig by using the length of each contig relative to the entire genome. It was designed to create a "control" dataset for comparing the intersection of UCEs with genome annotation files, but can be used for any similar purpose. Note that you may want to change the number (currently set to 5,472; line 100) and length of loci generated (currently set to 120 bp; lines 68, 110, 115 & 116).
 
 Execute with command "perl Locus_simulator.pl <your_genome.fa>". Output will be a BED-formated file named <your_genome.fa>.bed. It look like:
