@@ -10,3 +10,5 @@ Execute with command "perl Locus_simulator.pl <your_genome.fa>". Output will be 
     chr10	17882451	17882571	sim_3
     chr3	41464258	41464378	sim_4
     chr5	46403014	46403134	sim_5
+
+You can use this file for analyses with BEDtools <http://bedtools.readthedocs.io/en/latest/> or similar.
