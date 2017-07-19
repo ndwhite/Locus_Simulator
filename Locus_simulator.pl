@@ -2,11 +2,6 @@
 use List::Util qw(min max sum);
 use Data::Dumper;
 
-#To print checks:
-	#print Dumper %hash_scaffNumber;
-	#print join ("\n", @$header);
-
-
 #Open genome file
 open (FILE, $ARGV[0]) || die "Come again?\n";
 open (OUTPUT, ">$ARGV[0].bed") || die "Can't open output\n";
@@ -18,7 +13,6 @@ $initial = 1;
 %hash_scaffNumber = ();
 %hash_scaffProb = ();
 $Num_UCEs_wanted = 0;
-
 
 #Read in everything
 	#Create hash of scaffolds and **their length-120bp**
@@ -39,8 +33,6 @@ print "\t".$scaffold_length."\n";
 $upperlimit = $scaffold_length;
 @$header = ($initial..$upperlimit);
 print $initial."\t".$upperlimit."\n";
-# push(@{$hash_min{$header}}, $initial);
-# push(@{$hash_max{$header}}, $upperlimit);
 $hash_scaffNumber{$header} = $num_scaffolds;
 $hash_length{$header} = $scaffold_length;
 $initial += $scaffold_length;
@@ -52,7 +44,6 @@ until (eof FILE) {
 	chomp $line;
 	if ($line =~ m/>/){
 			@array = split (">", $line);
-#			print $array[1]."\n";
 			$header = $array[1];
 			print $header;
 			$num_scaffolds++;
@@ -63,10 +54,6 @@ until (eof FILE) {
 			print "\t".$scaffold_length."\n";
 			$upperlimit = $initial + $scaffold_length - 1;
 			print $initial."\t".$upperlimit."\n";
-# 			@$header = ($initial..$upperlimit);
-# 			push(@{$hash_range{$header}}, @$header);		
-# 			push(@{$hash_min{$header}}, $initial);
-# 			push(@{$hash_max{$header}}, $upperlimit);
 			$hash_length{$header} = $scaffold_length;
 			$hash_scaffNumber{$header} = $num_scaffolds;
  			$initial += $scaffold_length;
